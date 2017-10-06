@@ -1,0 +1,78 @@
+{
+  "id": 1843,
+  "name": "Scrolling Texture",
+  "fragment": "precision highp float;\nprecision highp int;\n\nvarying vec2 vUv;\n\nuniform vec2 uvScale;\nuniform sampler2D image;\nuniform float time;\nuniform vec2 speed;\n\nvoid main() {\n    gl_FragColor = texture2D( image, vUv + ( speed * time ) );\n}",
+  "vertex": "precision highp float;\nprecision highp int;\n\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec2 uvScale;\n\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\nattribute vec2 uv2;\n\nvarying vec2 vUv;\n\nvoid main() {\n  vUv = uv * uvScale;\n  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n}",
+  "uniforms": {
+    "image": {
+      "name": "image",
+      "displayName": null,
+      "type": "t",
+      "glslType": "sampler2D",
+      "useGridHelper": false,
+      "useRange": false,
+      "range": null,
+      "isRandom": false,
+      "randomRange": null,
+      "useToggle": false,
+      "toggle": null,
+      "description": ""
+    },
+    "uvScale": {
+      "name": "uvScale",
+      "displayName": null,
+      "type": "v2",
+      "glslType": "vec2",
+      "useGridHelper": false,
+      "useRange": false,
+      "range": null,
+      "isRandom": false,
+      "randomRange": null,
+      "useToggle": false,
+      "toggle": null,
+      "description": ""
+    },
+    "time": {
+      "name": "time",
+      "displayName": null,
+      "type": "f",
+      "glslType": "float",
+      "useGridHelper": false,
+      "useRange": false,
+      "range": null,
+      "isRandom": false,
+      "randomRange": null,
+      "useToggle": false,
+      "toggle": null,
+      "description": ""
+    },
+    "speed": {
+      "name": "speed",
+      "displayName": null,
+      "type": "v2",
+      "glslType": "vec2",
+      "useGridHelper": true,
+      "useRange": false,
+      "range": {
+        "min": {
+          "x": "-2",
+          "y": "-2"
+        },
+        "max": {
+          "x": "2",
+          "y": "2"
+        }
+      },
+      "isRandom": false,
+      "randomRange": null,
+      "useToggle": false,
+      "toggle": null,
+      "description": ""
+    }
+  },
+  "url": "http://shaderfrog.com/app/view/1843",
+  "user": {
+    "username": "andrewray",
+    "url": "http://shaderfrog.com/app/profile/andrewray"
+  }
+}
